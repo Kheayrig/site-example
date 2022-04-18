@@ -1,4 +1,4 @@
-*{
+.app{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,22 +8,23 @@
     display: grid;
     height: 100vh;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
+    grid-template-rows: auto 1fr;
     font-family: spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,helvetica,arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
+    color: #fff;
 }
 .header{
     height: 64px;
-    background-color: rgb(18, 18, 18);
-    z-index: 3;
+    background-color: #060606;
     grid-row: 1;
     grid-column: 2;
-    padding: 16px 32px;
+    padding: 0 32px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     white-space: nowrap;
     position: sticky;
     top: 0;
+    z-index: 3;
 }
 .header-btn{
     align-items: center;
@@ -50,62 +51,83 @@
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
+    margin-left: auto;
 }
 .btn-icon{
     fill: currentColor;
 }
-.main{
-    background-color: #242424;
+.content{
+    background-color: #121212;
     grid-column: 2;
-    grid-row: 1;
-    z-index: 1;
-    padding: 70px 32px;
-    color: #fff;
-}
-.main-div{
+    grid-row: 2;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    padding: 0 32px;
+}
+.results {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    min-height: 300px;
+    min-width: 100%;
+    position: relative;
+}
+.results-container {
+    gap: 24px;
+    display: flex;
+    flex-flow: wrap;
+}
+.results-item {
+    display: flex;
+    background-color: #181818;
+    flex-direction: column;
     align-items: center;
-}
-.results{
     padding: 16px;
-    background-color: #202020;
-    border-radius: 5px;
-    min-height: 260px;
-    min-width: 180px;
-    cursor: pointer;
+    gap: 16px;
+    border-radius: 4px;
     width: 100%;
-    margin: 0 15px;
+    max-width: 180px;
+    cursor: pointer;
 }
-.results:hover{
-    background-color: #282828;
+.results-title {
+    font-weight: 700;
 }
-.main-h2{
-    margin: 20px 0;
+.results-item:hover{
+    background-color: #222222;
 }
-.nav{
+.results-text {
+    min-height: 62px;
+    display: flex;
+    flex-direction: column;
+}
+.singer{
+    color: #b3b3b3;
+}
+.aside{
     background-color: #000;
     grid-column: 1;
-    grid-row: 1;
-    width: 283px;
-    display: flex;
-    flex-direction: column;
-    z-index: 3;
-}
-.nav-bar{
-    display: flex;
-    flex-direction: column;
-    padding-top: 24px;
+    grid-row: 1/3;
+    min-width: 272px;
     height: 100%;
 }
-.logo{
+.nav-bar {
+    position: fixed;
+    top: 24px;
+    left: 0;
+}
+.banner {
     margin-bottom: 18px;
     padding: 0 24px;
+}
+.banner-link .spotify-logo{
+    width: 100%;
+    height: 40px;
+    max-width: 131px;
+    color: #fff;
 }
 .menu{
     list-style: none;
     padding: 0 8px;
-    margin-top: 18px;
 }
 .menu__link_active{
     color: #fff;
@@ -119,7 +141,7 @@
 .icon{
     fill: currentColor;
 }
-.home-icon, .search-icon_active, .collection-icon_active{
+.home-icon, .search-icon_active{
     display: none;
 }
 .menu__title{
@@ -129,8 +151,10 @@
 .create-menu{
     display: flex;
     flex-direction: column;
-    margin-top: 24px;    
-}
+    margin-top: 24px;  
+    flex-grow: 1;
+    height: 100%;
+}  
 .untouched{
     opacity: .7;
 }
@@ -149,18 +173,6 @@
 }
 .button__plus-box{
     background-color: #fff;
-    padding: 4px;
-}
-.fav-tracks{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    padding: 8px 24px 8px 24px;
-    text-decoration: none;
-    color: #fff;
-}
-.fav-tracks__icon-box{  
-    background: linear-gradient(135deg,#450af5,#c4efd9);
 }
 .line__item{
     background-color: #282828;
@@ -171,109 +183,8 @@
 }
 .footer{
     display: flex;
-    align-items: flex-end;
-    height: 100%;
     justify-content: space-between;
     padding: 0 8px;
-}
-.playing-bar{
-    height: 90px;
-    background-color: #181818;
-    border-top: 1px solid #282828;
-    grid-row: 2;
-    grid-column: 1 / 3;
-    z-index: 4;  
-    min-width: 620px;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 16px;
-    position: sticky;
-    bottom: 0;
-}
-.cover{
-    width: 56px;
-    height: 56px;
-}
-.current-music-info{
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    min-width: 180px;
-    width: 30%;
-}
-.sing-info{
-    align-items: flex-start;
-    column-gap: 8px;
-    display: flex;
-    flex-direction: column;
-    margin: 0 14px;
-    width: 100%;
-}
-.song-title{
-    font-size: 0.875rem;
-    color: #fff;
-}
-.singer{
-    color: #b3b3b3;
-    font-size: 0.6875rem;
-    text-transform: uppercase;
-}
-.player{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 722px;
-    width: 40%;
-}
-.player__controls{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 16px;
-    margin-bottom: 8px;
-}
-.play-btn{
-    fill: #fff;
-    background-color: transparent;
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
-    cursor: pointer;
-    border: none;
-}
-.back-mix{
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-}
-.play{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #000;
-    width: 32px;
-    height: 32px;
-    border-radius: 100%;
-    border: none;
-    cursor: pointer;
-}
-.play-btn-icon{
-    fill: currentColor;
-}
-.forward-repeat{
-    display: flex;
-    justify-content: flex-start;
-    gap: 8px;
-}
-.player-settings{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    min-width: 180px;
-    width: 30%;
 }
 .btn:hover{
     transform: scale(1.08);
