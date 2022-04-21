@@ -210,6 +210,10 @@
     width: 56px;
     height: 56px;
 }
+.cover-img {
+    width: 56px;
+    height: 56px;
+}
 .current-music-info{
     display: flex;
     align-items: center;
@@ -249,6 +253,10 @@
     width: 100%;
     gap: 16px;
     margin-bottom: 8px;
+}
+.icon-btn {
+    width: 16px;
+    height: 16px;
 }
 .play-btn{
     fill: #fff;
@@ -300,7 +308,7 @@
     display: flex;
     justify-content: center;
 }
-.song__progress-bar {
+.progress-bar {
     cursor:pointer;
     display:inline-block;
     vertical-align:middle;
