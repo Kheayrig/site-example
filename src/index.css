@@ -73,8 +73,9 @@
     position: relative;
 }
 .results-container {
-    gap: 24px;
+    gap: 5px;
     display: flex;
+    justify-content: space-between;
     flex-flow: wrap;
 }
 .results-item {
