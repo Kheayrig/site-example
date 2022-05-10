@@ -39,6 +39,23 @@
     width: 32px;
     margin-right: 16px;
 }
+.search-container{
+    display: flex;
+    align-items: center;
+}
+.search__input{
+    border: none;
+    border-radius: 500px;
+    color: #000;
+    height: 40px;
+    padding: 6px 48px;
+    min-width: 364px;
+    width: 100%;
+}
+.input-icon{
+    position: absolute;
+    margin-left: 15px;
+}
 .sign-in{
     background-color: #fff;
     border-radius: 500px;
@@ -69,26 +86,73 @@
     flex-direction: column;
     margin-bottom: 16px;
     min-height: 300px;
-    min-width: 100%;
     position: relative;
 }
 .results-container {
-    gap: 5px;
+    gap: 24px;
     display: flex;
-    justify-content: space-between;
     flex-flow: wrap;
 }
-.results-item {
+.search-results {
     display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.best-result {
+    width: 100%;
+}
+.best-result__item {
+    display: flex;
+    flex-direction: column;
+    min-height: 180px;
+    gap: 16px;
     background-color: #181818;
+    cursor: pointer;
+    padding: 20px;
+    border-radius: 5px;
+}
+.best-result__item:hover {
+    background-color: #222222;
+}
+.tracks-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+}
+.song {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    gap: 16px;
+    cursor: pointer;
+}
+.time {
+    color: #b3b3b3;
+    margin-left: auto;
+}
+.list-text {
+    display: flex;
+    flex-direction: column;
+}
+.song:hover {
+    background-color: #222222;
+    border-radius: 4px;
+}
+.results-item{
+    border-radius: 4px;
+    background-color: #181818;
+    cursor: pointer;
+    display: flex;
     flex-direction: column;
     align-items: center;
     padding: 16px;
     gap: 16px;
-    border-radius: 4px;
     width: 100%;
     max-width: 180px;
-    cursor: pointer;
+}
+.result-img-list {
+    width: 40px;
+    height: 40px;
 }
 .result-img {
     width: 160px;
@@ -97,7 +161,16 @@
 .results-title {
     font-weight: 700;
 }
-.results-item:hover{
+.best-result-img {
+    border-radius: 100%;
+    width: 120px;
+    height: 120px;
+}
+.best-singer-name {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.results-item:hover {
     background-color: #222222;
 }
 .results-text {
@@ -105,7 +178,7 @@
     display: flex;
     flex-direction: column;
 }
-.singer{
+.singer {
     color: #b3b3b3;
 }
 .aside-nav{
@@ -146,7 +219,7 @@
 .icon{
     fill: currentColor;
 }
-.home-icon, .search-icon_active{
+.home-icon_active, .search-icon{
     display: none;
 }
 .menu__title{
@@ -179,6 +252,17 @@
 .button__plus-box{
     background-color: #fff;
 }
+.fav-tracks{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px 8px 24px;
+    text-decoration: none;
+    color: #fff;
+}
+.fav-tracks__icon-box{  
+    background: linear-gradient(135deg,#450af5,#c4efd9);
+}
 .line__item{
     background-color: #282828;
     border: none;
@@ -188,6 +272,7 @@
 }
 .download-app-link{
     display: flex;
+    align-items: flex-end;
     justify-content: space-between;
     padding: 0 8px;
 }
